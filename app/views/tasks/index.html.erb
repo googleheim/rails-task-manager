@@ -1,0 +1,20 @@
+<div class="container">
+  <h1 class="mt-3">My tasks</h1>
+  <div class="div mt-3">
+  <ul>
+    <% @tasks.each do |task| %>
+      <li>
+        <% if task.completed == true %>✔️
+        <% else %> ☐
+        <% end %>
+      <%= link_to task.title, task_path(task) %>
+      <%= link_to "🗑", task_path(task), method: :delete, data: { confirm: 'Are you sure?' } %>
+      </li>
+      <% end %>
+  </ul>
+  </div>
+  <div class="mt-3 pt-3 border-top border-dark">
+    <%= link_to "＋ Add a new task", new_task_path %>
+  </div>
+</div>
+
